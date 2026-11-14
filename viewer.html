@@ -13,26 +13,23 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden;font:17px -apple-
 .slot{flex:0 0 100vw;width:100vw;height:100%;display:flex;align-items:center;justify-content:center}
 canvas{display:block;background:#fff}
 #msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#ccc}
-.bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:10px;background:rgba(17,24,39,.92);padding:calc(env(safe-area-inset-top) + 8px) 12px 8px;transition:opacity .3s}
-.bar.hide{opacity:0;pointer-events:none}
-.bar a{color:#fff;text-decoration:none;background:#d62839;padding:8px 14px;border-radius:10px;font-weight:600;white-space:nowrap}
-.bar span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
-.bar b{font-weight:600;color:#ccc;white-space:nowrap}
-.zone{position:fixed;top:60px;bottom:0;z-index:2}
+.back{position:fixed;top:calc(env(safe-area-inset-top) + 6px);left:6px;z-index:5;width:34px;height:34px;border-radius:17px;background:rgba(17,24,39,.35);color:rgba(255,255,255,.7);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:20px}
+#pg{position:fixed;right:8px;bottom:calc(env(safe-area-inset-bottom) + 4px);z-index:5;font-size:12px;color:rgba(255,255,255,.55);background:rgba(0,0,0,.35);padding:2px 8px;border-radius:10px;pointer-events:none}
+.zone{position:fixed;top:48px;bottom:0;z-index:2}
 #zp{left:0;width:30%}#zn{right:0;width:70%}
 </style></head><body>
 <div id="stage"><div id="track"></div></div>
 <div id="msg">Načítavam…</div>
-<div class="bar" id="bar"><a href="./">← Späť</a><span id="t"></span><b id="pg"></b></div>
+<a class="back" href="./" aria-label="Späť">‹</a><div id="pg"></div>
 <div class="zone" id="zp"></div><div class="zone" id="zn"></div>
 <script>
 const p=new URLSearchParams(location.search),f=p.get('f'),t=p.get('t')||'';
-document.getElementById('t').textContent=t;document.title=t||'3Mband';
+document.title=t||'3Mband';
 const CDN='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
-const $=id=>document.getElementById(id),bar=$('bar');
-let pdf,n=1,timer;
+const $=id=>document.getElementById(id);
+let pdf,n=1;
 function load(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load '+src));document.head.appendChild(s)})}
-function showBar(){bar.classList.remove('hide');clearTimeout(timer);timer=setTimeout(()=>bar.classList.add('hide'),3000)}
+function showBar(){}
 let cache=new Map(),size='',slots=[];
 async function render(k){
   const W=window.innerWidth,H=window.innerHeight,dpr=Math.min(window.devicePixelRatio||1,3);
@@ -66,8 +63,6 @@ async function draw(){
 function go(d){if(!pdf)return;const m=Math.min(pdf.numPages,Math.max(1,n+d));if(m!==n){n=m;pos(true);fill(n);fill(n+1);fill(n-1);fill(n+2)}showBar()}
 $('zn').addEventListener('click',()=>{if(Date.now()-suppress>400)go(1)});
 $('zp').addEventListener('click',()=>{if(Date.now()-suppress>400)go(-1)});
-document.addEventListener('touchstart',e=>{if(e.touches[0].clientY<60)showBar()},{passive:true});
-document.addEventListener('mousemove',e=>{if(e.clientY<60)showBar()});
 addEventListener('keydown',e=>{
   const k=e.key;
   if(['ArrowRight','ArrowDown','PageDown',' ','Enter','MediaTrackNext'].includes(k)){e.preventDefault();go(1)}
