@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3Mband – reset</title>
+<style>body{font:18px -apple-system,system-ui,sans-serif;background:#111827;color:#fff;text-align:center;padding:60px 20px}a{color:#fff;background:#d62839;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:600;display:inline-block;margin-top:20px}</style></head>
+<body><h2 id="s">Čistím pamäť aplikácie…</h2><a href="./" id="b" style="display:none">Otvoriť 3Mband</a>
+<script>
+(async()=>{
+ try{
+  const r=await navigator.serviceWorker.getRegistrations();for(const x of r)await x.unregister();
+  for(const k of await caches.keys())await caches.delete(k);
+ }catch(e){}
+ document.getElementById('s').textContent='Hotovo. Stará verzia bola vymazaná.';
+ document.getElementById('b').style.display='inline-block';
+})();
+</script></body></html>
