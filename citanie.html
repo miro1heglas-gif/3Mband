@@ -29,7 +29,6 @@ canvas{display:block;background:#fff}
 const p=new URLSearchParams(location.search),f=p.get('f'),t=p.get('t')||'';
 const CDN='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
 const $=id=>document.getElementById(id);
-$('back').addEventListener('click',e=>{if(history.length>1){e.preventDefault();history.back()}});
 $('t').textContent=t;document.title=t||'3Mband';
 let pdf,n=1;
 function load(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load '+src));document.head.appendChild(s)})}
