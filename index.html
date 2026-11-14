@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="3Mband">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#111827">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<title>3Mband</title>
+<style>
+:root{color-scheme:light dark;--bg:#f2f2f7;--card:#fff;--tx:#111;--mut:#8a8a8e;--acc:#d62839;--sep:#e5e5ea}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--tx:#fff;--sep:#2c2c2e}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px -apple-system,system-ui,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(env(safe-area-inset-top) + 12px) 16px 8px}
+h1{margin:0 0 8px;font-size:32px;letter-spacing:-.5px}
+h1 span{color:var(--acc)}
+input{width:100%;padding:10px 14px;border:0;border-radius:12px;background:var(--card);color:var(--tx);font-size:17px;outline:none}
+.cnt{color:var(--mut);font-size:13px;margin:8px 4px 0}
+main{padding:4px 16px calc(env(safe-area-inset-bottom) + 24px)}
+ul{list-style:none;margin:0;padding:0;background:var(--card);border-radius:12px;overflow:hidden}
+.letter{color:var(--mut);font-size:13px;font-weight:600;margin:18px 6px 6px}
+li a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;color:inherit;text-decoration:none;border-bottom:1px solid var(--sep)}
+li:last-child a{border-bottom:0}
+li a:active{background:var(--sep)}
+.ref{color:var(--mut);font-size:14px;white-space:nowrap}
+.empty{text-align:center;color:var(--mut);padding:40px}
+</style>
+</head>
+<body>
+<header><h1>3M<span>band</span></h1><input id="q" type="search" placeholder="Hľadať pieseň…" autocomplete="off"><div class="cnt" id="cnt"></div></header>
+<main id="list"></main>
+<script>
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+let songs=[];
+const list=document.getElementById('list'),cnt=document.getElementById('cnt');
+function render(f){
+  const n=norm(f.trim());
+  const r=songs.filter(s=>norm(s.title).includes(n));
+  cnt.textContent=r.length+' / '+songs.length;
+  if(!r.length){list.innerHTML='<div class="empty">Nič sa nenašlo</div>';return}
+  let h='',cur='',open=false;
+  for(const s of r){
+    const L=(norm(s.title)[0]||'#').toUpperCase();
+    if(L!==cur){if(open)h+='</ul>';cur=L;h+=`<div class="letter">${L}</div><ul>`;open=true}
+    h+=`<li><a href="${encodeURI(s.file)}"><span>${s.title.replace(/</g,'&lt;')}</span><span class="ref">${s.ref}</span></a></li>`;
+  }
+  list.innerHTML=h+'</ul>';
+}
+fetch('songs.json').then(r=>r.json()).then(d=>{
+  songs=d.sort((a,b)=>a.title.localeCompare(b.title,'cs'));render('');
+});
+document.getElementById('q').addEventListener('input',e=>render(e.target.value));
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
