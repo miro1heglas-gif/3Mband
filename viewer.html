@@ -8,7 +8,9 @@
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
 html,body{margin:0;height:100%;background:#000;overflow:hidden;font:17px -apple-system,system-ui,sans-serif;color:#fff;touch-action:manipulation}
-#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#000}
+#stage{position:fixed;inset:0;overflow:hidden;background:#000}
+#track{display:flex;height:100%;transition:transform .35s ease;will-change:transform}
+.slot{flex:0 0 100vw;width:100vw;height:100%;display:flex;align-items:center;justify-content:center}
 canvas{display:block;background:#fff}
 #msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#ccc}
 .bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:10px;background:rgba(17,24,39,.92);padding:calc(env(safe-area-inset-top) + 8px) 12px 8px;transition:opacity .3s}
@@ -19,7 +21,7 @@ canvas{display:block;background:#fff}
 .zone{position:fixed;top:60px;bottom:0;z-index:2}
 #zp{left:0;width:30%}#zn{right:0;width:70%}
 </style></head><body>
-<div id="stage"><canvas id="c"></canvas></div>
+<div id="stage"><div id="track"></div></div>
 <div id="msg">Načítavam…</div>
 <div class="bar" id="bar"><a href="./">← Späť</a><span id="t"></span><b id="pg"></b></div>
 <div class="zone" id="zp"></div><div class="zone" id="zn"></div>
@@ -27,41 +29,43 @@ canvas{display:block;background:#fff}
 const p=new URLSearchParams(location.search),f=p.get('f'),t=p.get('t')||'';
 document.getElementById('t').textContent=t;document.title=t||'3Mband';
 const CDN='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
-const $=id=>document.getElementById(id),cv=$('c'),bar=$('bar');
-let pdf,n=1,busy=false,again=false,timer;
+const $=id=>document.getElementById(id),bar=$('bar');
+let pdf,n=1,timer;
 function load(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load '+src));document.head.appendChild(s)})}
 function showBar(){bar.classList.remove('hide');clearTimeout(timer);timer=setTimeout(()=>bar.classList.add('hide'),3000)}
-let cache=new Map(),size='';
+let cache=new Map(),size='',slots=[];
 async function render(k){
   const W=window.innerWidth,H=window.innerHeight,dpr=Math.min(window.devicePixelRatio||1,3);
-  const key=W+'x'+H;if(key!==size){cache=new Map();size=key}
+  const key=W+'x'+H;if(key!==size){cache=new Map();size=key;slots.forEach(x=>x.innerHTML='')}
   if(cache.has(k))return cache.get(k);
   const job=(async()=>{
     const pg=await pdf.getPage(k),v0=pg.getViewport({scale:1});
     const s=Math.min(W/v0.width,H/v0.height),v=pg.getViewport({scale:s*dpr});
     const c=document.createElement('canvas');c.width=Math.floor(v.width);c.height=Math.floor(v.height);
     await pg.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
-    return {c,w:Math.floor(v0.width*s),h:Math.floor(v0.height*s)};
+    c.style.width=Math.floor(v0.width*s)+'px';c.style.height=Math.floor(v0.height*s)+'px';
+    return c;
   })();
   cache.set(k,job);return job;
 }
+async function fill(k){
+  if(k<1||k>pdf.numPages)return;
+  const c=await render(k),slot=slots[k-1];
+  if(!slot.firstChild)slot.appendChild(c);
+}
+function pos(anim){
+  const tr=$('track');tr.style.transition=anim?'':'none';
+  tr.style.transform='translateX('+(-(n-1)*window.innerWidth)+'px)';
+  $('pg').textContent=n+' / '+pdf.numPages;
+}
 async function draw(){
   if(!pdf)return;
-  if(busy){again=true;return}
-  busy=true;
-  do{again=false;
-    const r=await render(n);
-    cv.width=r.c.width;cv.height=r.c.height;cv.getContext('2d').drawImage(r.c,0,0);
-    cv.style.width=r.w+'px';cv.style.height=r.h+'px';
-    $('pg').textContent=n+' / '+pdf.numPages;
-  }while(again);
-  busy=false;
-  if(n<pdf.numPages)render(n+1);
-  if(n>1)render(n-1);
+  pos(false);
+  await fill(n);await fill(n+1);await fill(n-1);await fill(n+2);
 }
-function go(d){if(!pdf)return;const m=Math.min(pdf.numPages,Math.max(1,n+d));if(m!==n){n=m;draw()}showBar()}
-$('zn').addEventListener('click',()=>go(1));
-$('zp').addEventListener('click',()=>go(-1));
+function go(d){if(!pdf)return;const m=Math.min(pdf.numPages,Math.max(1,n+d));if(m!==n){n=m;pos(true);fill(n);fill(n+1);fill(n-1);fill(n+2)}showBar()}
+$('zn').addEventListener('click',()=>{if(Date.now()-suppress>400)go(1)});
+$('zp').addEventListener('click',()=>{if(Date.now()-suppress>400)go(-1)});
 document.addEventListener('touchstart',e=>{if(e.touches[0].clientY<60)showBar()},{passive:true});
 document.addEventListener('mousemove',e=>{if(e.clientY<60)showBar()});
 addEventListener('keydown',e=>{
@@ -72,6 +76,10 @@ addEventListener('keydown',e=>{
   else if(k==='End'){e.preventDefault();n=pdf.numPages;draw()}
   else if(k==='Escape'){location.href='./'}
 });
+let sx=null;
+document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>50){go(dx<0?1:-1);suppress=Date.now()}},{passive:true});
+let suppress=0;
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(draw,150)});
 (async()=>{
  try{
@@ -82,6 +90,7 @@ let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(draw,150)})
   for(const c of cands){try{pdf=await pdfjsLib.getDocument(encodeURI(c)).promise;break}catch(e){}}
   if(!pdf)throw new Error('PDF sa nenašlo ('+cands.join(', ')+')');
   $('msg').remove();
+  const tr=$('track');for(let i=0;i<pdf.numPages;i++){const d=document.createElement('div');d.className='slot';tr.appendChild(d);slots.push(d)}
   await draw();showBar();
  }catch(e){$('msg').textContent='Nepodarilo sa načítať PDF: '+(e&&e.message||e)}
 })();
