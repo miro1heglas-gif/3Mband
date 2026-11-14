@@ -17,13 +17,16 @@ canvas{display:block;width:100%;height:auto;margin:0 auto 8px;background:#fff}
 </style></head><body>
 <div class="bar"><a href="./">← Späť</a><span id="t"></span></div>
 <div id="msg">Načítavam…</div><div id="pages"></div>
-<script src="lib/pdf.min.js"></script>
 <script>
 const p=new URLSearchParams(location.search),f=p.get('f'),t=p.get('t')||'';
 document.getElementById('t').textContent=t;document.title=t||'3Mband';
-pdfjsLib.GlobalWorkerOptions.workerSrc='lib/pdf.worker.min.js';
+const CDN='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+function load(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load '+src));document.head.appendChild(s)})}
 (async()=>{
  try{
+  let base='lib/';
+  try{await load(base+'pdf.min.js');await fetch(base+'pdf.worker.min.js').then(r=>{if(!r.ok)throw 0})}catch(e){base=CDN;await load(CDN+'pdf.min.js')}
+  pdfjsLib.GlobalWorkerOptions.workerSrc=base+'pdf.worker.min.js';
   const pdf=await pdfjsLib.getDocument(encodeURI(f)).promise;
   document.getElementById('msg').remove();
   const box=document.getElementById('pages');
@@ -34,6 +37,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc='lib/pdf.worker.min.js';
     c.style.maxWidth=W+'px';box.appendChild(c);
     await pg.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
   }
- }catch(e){document.getElementById('msg').textContent='Nepodarilo sa načítať PDF.'}
+ }catch(e){document.getElementById('msg').textContent='Nepodarilo sa načítať PDF: '+(e&&e.message||e)}
 })();
 </script></body></html>
