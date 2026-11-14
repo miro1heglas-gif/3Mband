@@ -36,6 +36,8 @@ li a:active{background:var(--sep)}
 <script>
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 let songs=[];
+const SS=sessionStorage;let ready=false;const Y0=parseInt(SS.getItem('y3')||'0'),Q0=SS.getItem('q3')||'';
+try{history.scrollRestoration='manual'}catch(e){}
 const list=document.getElementById('list'),cnt=document.getElementById('cnt');
 function render(f){
   const n=norm(f.trim());
@@ -46,14 +48,20 @@ function render(f){
   for(const s of r){
     const L=(norm(s.title)[0]||'#').toUpperCase();
     if(L!==cur){if(open)h+='</ul>';cur=L;h+=`<div class="letter">${L}</div><ul>`;open=true}
-    h+=`<li><a href="viewer.html?f=${encodeURIComponent(s.file)}&t=${encodeURIComponent(s.title)}"><span>${s.title.replace(/</g,'&lt;')}</span><span class="ref">${s.ref}</span></a></li>`;
+    h+=`<li><a href="citanie.html?f=${encodeURIComponent(s.file)}&t=${encodeURIComponent(s.title)}"><span>${s.title.replace(/</g,'&lt;')}</span></a></li>`;
   }
   list.innerHTML=h+'</ul>';
 }
 fetch('songs.json').then(r=>r.json()).then(d=>{
-  songs=d.sort((a,b)=>a.title.localeCompare(b.title,'cs'));render('');
+  songs=d.sort((a,b)=>a.title.localeCompare(b.title,'cs'));
+  document.getElementById('q').value=Q0;render(Q0);
+  if(Y0)window.scrollTo(0,Y0);
+  setTimeout(()=>{ready=true},300);
 });
-document.getElementById('q').addEventListener('input',e=>render(e.target.value));
+function save(){if(!ready)return;try{SS.setItem('y3',window.scrollY);SS.setItem('q3',document.getElementById('q').value)}catch(e){}}
+addEventListener('scroll',save,{passive:true});addEventListener('pagehide',save);
+document.addEventListener('click',save,true);
+document.getElementById('q').addEventListener('input',e=>{render(e.target.value);window.scrollTo(0,0);save()});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script>
 </body>
