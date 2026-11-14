@@ -31,7 +31,7 @@ li a:active{background:var(--sep)}
 </style>
 </head>
 <body>
-<header><h1>3M<span>band</span></h1><input id="q" type="search" placeholder="Hľadať pieseň…" autocomplete="off"><div class="cnt" id="cnt"></div></header>
+<header><h1><img src="logo.png" alt="3M Band" style="height:64px;border-radius:8px;display:block"></h1><input id="q" type="search" placeholder="Hľadať pieseň…" autocomplete="off"><div class="cnt" id="cnt"></div></header>
 <main id="list"></main>
 <script>
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
@@ -46,7 +46,7 @@ function render(f){
   for(const s of r){
     const L=(norm(s.title)[0]||'#').toUpperCase();
     if(L!==cur){if(open)h+='</ul>';cur=L;h+=`<div class="letter">${L}</div><ul>`;open=true}
-    h+=`<li><a href="${encodeURI(s.file)}"><span>${s.title.replace(/</g,'&lt;')}</span><span class="ref">${s.ref}</span></a></li>`;
+    h+=`<li><a href="viewer.html?f=${encodeURIComponent(s.file)}&t=${encodeURIComponent(s.title)}"><span>${s.title.replace(/</g,'&lt;')}</span><span class="ref">${s.ref}</span></a></li>`;
   }
   list.innerHTML=h+'</ul>';
 }

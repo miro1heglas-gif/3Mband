@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sk"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#111827">
+<title>3Mband</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#3a3a3c;font:17px -apple-system,system-ui,sans-serif;color:#fff}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;background:#111827;padding:calc(env(safe-area-inset-top) + 8px) 12px 8px}
+.bar a{color:#fff;text-decoration:none;background:#d62839;padding:8px 14px;border-radius:10px;font-weight:600;white-space:nowrap}
+.bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+#pages{padding:8px 0 calc(env(safe-area-inset-bottom) + 16px)}
+canvas{display:block;width:100%;height:auto;margin:0 auto 8px;background:#fff}
+#msg{padding:30px;text-align:center;color:#ccc}
+</style></head><body>
+<div class="bar"><a href="./">← Späť</a><span id="t"></span></div>
+<div id="msg">Načítavam…</div><div id="pages"></div>
+<script src="lib/pdf.min.js"></script>
+<script>
+const p=new URLSearchParams(location.search),f=p.get('f'),t=p.get('t')||'';
+document.getElementById('t').textContent=t;document.title=t||'3Mband';
+pdfjsLib.GlobalWorkerOptions.workerSrc='lib/pdf.worker.min.js';
+(async()=>{
+ try{
+  const pdf=await pdfjsLib.getDocument(encodeURI(f)).promise;
+  document.getElementById('msg').remove();
+  const box=document.getElementById('pages');
+  const W=Math.min(window.innerWidth,900),dpr=Math.min(window.devicePixelRatio||1,3);
+  for(let i=1;i<=pdf.numPages;i++){
+    const pg=await pdf.getPage(i),v0=pg.getViewport({scale:1}),sc=W/v0.width*dpr,v=pg.getViewport({scale:sc});
+    const c=document.createElement('canvas');c.width=v.width;c.height=v.height;
+    c.style.maxWidth=W+'px';box.appendChild(c);
+    await pg.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+  }
+ }catch(e){document.getElementById('msg').textContent='Nepodarilo sa načítať PDF.'}
+})();
+</script></body></html>
