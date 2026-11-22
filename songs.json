@@ -1,342 +1,427 @@
 [
  {
   "title": "22 dní_3-23",
-  "file": "pdf/22-dni-3-23.pdf"
+  "file": "pdf/22-dni-3-23.pdf",
+  "pages": 1
  },
  {
   "title": "Aj keď bez peňazí_3-25",
-  "file": "pdf/aj-ked-bez-penazi-3-25.pdf"
+  "file": "pdf/aj-ked-bez-penazi-3-25.pdf",
+  "pages": 1
  },
  {
   "title": "Ako obrázok_10-80",
-  "file": "pdf/ako-obrazok-10-80.pdf"
+  "file": "pdf/ako-obrazok-10-80.pdf",
+  "pages": 1
  },
  {
   "title": "Balada o poľných vtákoch_3-17",
-  "file": "pdf/balada-o-polnych-vtakoch-3-17.pdf"
+  "file": "pdf/balada-o-polnych-vtakoch-3-17.pdf",
+  "pages": 1
  },
  {
   "title": "Beautiful sunday_4-33",
-  "file": "pdf/beautiful-sunday-4-33.pdf"
+  "file": "pdf/beautiful-sunday-4-33.pdf",
+  "pages": 1
  },
  {
   "title": "Bonsoir mademoiselle Paris_2-9",
-  "file": "pdf/bonsoir-mademoiselle-paris-2-9.pdf"
+  "file": "pdf/bonsoir-mademoiselle-paris-2-9.pdf",
+  "pages": 1
  },
  {
   "title": "Být stále mlád_5-37",
-  "file": "pdf/byt-stale-mlad-5-37.pdf"
+  "file": "pdf/byt-stale-mlad-5-37.pdf",
+  "pages": 2
  },
  {
   "title": "Chtěl bych žít_6-52",
-  "file": "pdf/chtel-bych-zit-6-52.pdf"
+  "file": "pdf/chtel-bych-zit-6-52.pdf",
+  "pages": 1
  },
  {
   "title": "Chtěl jsem mít_2-10",
-  "file": "pdf/chtel-jsem-mit-2-10.pdf"
+  "file": "pdf/chtel-jsem-mit-2-10.pdf",
+  "pages": 1
  },
  {
   "title": "Colorado_6-48",
-  "file": "pdf/colorado-6-48.pdf"
+  "file": "pdf/colorado-6-48.pdf",
+  "pages": 1
  },
  {
   "title": "Country zmes_7-59",
-  "file": "pdf/country-zmes-7-59.pdf"
+  "file": "pdf/country-zmes-7-59.pdf",
+  "pages": 3
  },
  {
   "title": "Dej mi víc své lásky_3-20",
-  "file": "pdf/dej-mi-vic-sve-lasky-3-20.pdf"
+  "file": "pdf/dej-mi-vic-sve-lasky-3-20.pdf",
+  "pages": 1
  },
  {
   "title": "Dievčatá_4-32",
-  "file": "pdf/dievcata-4-32.pdf"
+  "file": "pdf/dievcata-4-32.pdf",
+  "pages": 1
  },
  {
   "title": "Dynamit_4-34",
-  "file": "pdf/dynamit-4-34.pdf"
+  "file": "pdf/dynamit-4-34.pdf",
+  "pages": 1
  },
  {
   "title": "Dávno_10-83",
-  "file": "pdf/davno-10-83.pdf"
+  "file": "pdf/davno-10-83.pdf",
+  "pages": 1
  },
  {
   "title": "Dáša_2-12",
-  "file": "pdf/dasa-2-12.pdf"
+  "file": "pdf/dasa-2-12.pdf",
+  "pages": 1
  },
  {
   "title": "Eldorádo_5-39",
-  "file": "pdf/eldorado-5-39.pdf"
+  "file": "pdf/eldorado-5-39.pdf",
+  "pages": 1
  },
  {
   "title": "Elena-Repete 2_6-53",
-  "file": "pdf/elena-repete-2-6-53.pdf"
+  "file": "pdf/elena-repete-2-6-53.pdf",
+  "pages": 2
  },
  {
   "title": "Hej Jude_2-16",
-  "file": "pdf/hej-jude-2-16.pdf"
+  "file": "pdf/hej-jude-2-16.pdf",
+  "pages": 1
  },
  {
   "title": "Hrobař_8-68",
-  "file": "pdf/hrobar-8-68.pdf"
+  "file": "pdf/hrobar-8-68.pdf",
+  "pages": 1
  },
  {
   "title": "Hvězdičko blýskavá_9-70",
-  "file": "pdf/hvezdicko-blyskava-9-70.pdf"
+  "file": "pdf/hvezdicko-blyskava-9-70.pdf",
+  "pages": 1
  },
  {
   "title": "I can´t help falling in love with you_5-38",
-  "file": "pdf/i-can-t-help-falling-in-love-with-you-5-38.pdf"
+  "file": "pdf/i-can-t-help-falling-in-love-with-you-5-38.pdf",
+  "pages": 1
  },
  {
   "title": "Imagine_1-1",
-  "file": "pdf/imagine-1-1.pdf"
+  "file": "pdf/imagine-1-1.pdf",
+  "pages": 2
  },
  {
   "title": "In the summertime_6-47",
-  "file": "pdf/in-the-summertime-6-47.pdf"
+  "file": "pdf/in-the-summertime-6-47.pdf",
+  "pages": 2
  },
  {
   "title": "Jabko_9-69",
-  "file": "pdf/jabko-9-69.pdf"
+  "file": "pdf/jabko-9-69.pdf",
+  "pages": 1
  },
  {
   "title": "Jahody_4-35",
-  "file": "pdf/jahody-4-35.pdf"
+  "file": "pdf/jahody-4-35.pdf",
+  "pages": 2
  },
  {
   "title": "Jako za mlada_2-11",
-  "file": "pdf/jako-za-mlada-2-11.pdf"
+  "file": "pdf/jako-za-mlada-2-11.pdf",
+  "pages": 1
  },
  {
   "title": "Jasná správa",
-  "file": "pdf/jasna-sprava.pdf"
+  "file": "pdf/jasna-sprava.pdf",
+  "pages": 1
  },
  {
   "title": "Jó, třešně zrály_9-73",
-  "file": "pdf/jo-tresne-zraly-9-73.pdf"
+  "file": "pdf/jo-tresne-zraly-9-73.pdf",
+  "pages": 2
  },
  {
   "title": "Jóžin z bážin_10-84",
-  "file": "pdf/jozin-z-bazin-10-84.pdf"
+  "file": "pdf/jozin-z-bazin-10-84.pdf",
+  "pages": 1
  },
  {
   "title": "Kapela_3-22",
-  "file": "pdf/kapela-3-22.pdf"
+  "file": "pdf/kapela-3-22.pdf",
+  "pages": 1
  },
  {
   "title": "Katapult Blues_8-60",
-  "file": "pdf/katapult-blues-8-60.pdf"
+  "file": "pdf/katapult-blues-8-60.pdf",
+  "pages": 1
  },
  {
   "title": "Katapult Katapult_8-61",
-  "file": "pdf/katapult-katapult-8-61.pdf"
+  "file": "pdf/katapult-katapult-8-61.pdf",
+  "pages": 2
  },
  {
   "title": "Každý chce byť naj_2-14",
-  "file": "pdf/kazdy-chce-byt-naj-2-14.pdf"
+  "file": "pdf/kazdy-chce-byt-naj-2-14.pdf",
+  "pages": 1
  },
  {
   "title": "Kdo vchází do tvých snú, má lásko_9-75",
-  "file": "pdf/kdo-vchazi-do-tvych-snu-ma-lasko-9-75.pdf"
+  "file": "pdf/kdo-vchazi-do-tvych-snu-ma-lasko-9-75.pdf",
+  "pages": 2
  },
  {
   "title": "Když máš v chalupě orchestrion_9-72",
-  "file": "pdf/kdyz-mas-v-chalupe-orchestrion-9-72.pdf"
+  "file": "pdf/kdyz-mas-v-chalupe-orchestrion-9-72.pdf",
+  "pages": 1
  },
  {
   "title": "Keď ťa nechá dievča_5-42",
-  "file": "pdf/ked-ta-necha-dievca-5-42.pdf"
+  "file": "pdf/ked-ta-necha-dievca-5-42.pdf",
+  "pages": 1
  },
  {
   "title": "Kladivo_1-7",
-  "file": "pdf/kladivo-1-7.pdf"
+  "file": "pdf/kladivo-1-7.pdf",
+  "pages": 1
  },
  {
   "title": "Knocking on heaven´s door_8-64",
-  "file": "pdf/knocking-on-heaven-s-door-8-64.pdf"
+  "file": "pdf/knocking-on-heaven-s-door-8-64.pdf",
+  "pages": 1
  },
  {
   "title": "Koľko a čo za to_4-28",
-  "file": "pdf/kolko-a-co-za-to-4-28.pdf"
+  "file": "pdf/kolko-a-co-za-to-4-28.pdf",
+  "pages": 1
  },
  {
   "title": "Lady Karneval_3-26",
-  "file": "pdf/ladz-karneval-3-26.pdf"
+  "file": "pdf/ladz-karneval-3-26.pdf",
+  "pages": 1
  },
  {
   "title": "Laufer Sbohem lásko, já jedu dál_3-18",
-  "file": "pdf/laufer-sbohem-lasko-ja-jedu-dal-3-18.pdf"
+  "file": "pdf/laufer-sbohem-lasko-ja-jedu-dal-3-18.pdf",
+  "pages": 1
  },
  {
   "title": "Loučím se s tmou_9-77",
-  "file": "pdf/loucim-se-s-tmou-9-77.pdf"
+  "file": "pdf/loucim-se-s-tmou-9-77.pdf",
+  "pages": 2
  },
  {
   "title": "Love is in the air_1-6",
-  "file": "pdf/love-is-in-the-air-1-6.pdf"
+  "file": "pdf/love-is-in-the-air-1-6.pdf",
+  "pages": 1
  },
  {
   "title": "Loď do neznáma_6-49",
-  "file": "pdf/lod-do-neznama-6-49.pdf"
+  "file": "pdf/lod-do-neznama-6-49.pdf",
+  "pages": 1
  },
  {
   "title": "Láska moja_8-66",
-  "file": "pdf/laska-moja-8-66.pdf"
+  "file": "pdf/laska-moja-8-66.pdf",
+  "pages": 1
  },
  {
   "title": "Léto s tebou_9-74",
-  "file": "pdf/leto-s-tebou-9-74.pdf"
+  "file": "pdf/leto-s-tebou-9-74.pdf",
+  "pages": 2
  },
  {
   "title": "Margaréta_1-5",
-  "file": "pdf/margareta-1-5.pdf"
+  "file": "pdf/margareta-1-5.pdf",
+  "pages": 1
  },
  {
   "title": "Mariána_2-13",
-  "file": "pdf/mariana-2-13.pdf"
+  "file": "pdf/mariana-2-13.pdf",
+  "pages": 2
  },
  {
   "title": "Massachusetts_3-24",
-  "file": "pdf/massachusetts-3-24.pdf"
+  "file": "pdf/massachusetts-3-24.pdf",
+  "pages": 1
  },
  {
   "title": "Mašinka_4-36",
-  "file": "pdf/masinka-4-36.pdf"
+  "file": "pdf/masinka-4-36.pdf",
+  "pages": 1
  },
  {
   "title": "Máj_7-58",
-  "file": "pdf/maj-7-58.pdf"
+  "file": "pdf/maj-7-58.pdf",
+  "pages": 1
  },
  {
   "title": "Mám rád_6-46",
-  "file": "pdf/mam-rad-6-46.pdf"
+  "file": "pdf/mam-rad-6-46.pdf",
+  "pages": 1
  },
  {
   "title": "Múr našich lások_5-41",
-  "file": "pdf/mur-nasich-lasok-5-41.pdf"
+  "file": "pdf/mur-nasich-lasok-5-41.pdf",
+  "pages": 1
  },
  {
   "title": "Na kolena_5-43",
-  "file": "pdf/na-kolena-5-43.pdf"
+  "file": "pdf/na-kolena-5-43.pdf",
+  "pages": 1
  },
  {
   "title": "Načo pôjdem domov Zmes_10-85",
-  "file": "pdf/naco-pojdem-domov-zmes-10-85.pdf"
+  "file": "pdf/naco-pojdem-domov-zmes-10-85.pdf",
+  "pages": 3
  },
  {
   "title": "Neviem byť sám_4-30",
-  "file": "pdf/neviem-byt-sam-4-30.pdf"
+  "file": "pdf/neviem-byt-sam-4-30.pdf",
+  "pages": 1
  },
  {
   "title": "Nonstop_8-65",
-  "file": "pdf/nonstop-8-65.pdf"
+  "file": "pdf/nonstop-8-65.pdf",
+  "pages": 1
  },
  {
   "title": "Někdy příšte_4-29",
-  "file": "pdf/nekdy-priste-4-29.pdf"
+  "file": "pdf/nekdy-priste-4-29.pdf",
+  "pages": 1
  },
  {
   "title": "Okno mé lásky7-54",
-  "file": "pdf/okno-me-lasky7-54.pdf"
+  "file": "pdf/okno-me-lasky7-54.pdf",
+  "pages": 1
  },
  {
   "title": "Osmý den_10-81",
-  "file": "pdf/osmy-den-10-81.pdf"
+  "file": "pdf/osmy-den-10-81.pdf",
+  "pages": 1
  },
  {
   "title": "Pohoda_8-67",
-  "file": "pdf/pohoda-8-67.pdf"
+  "file": "pdf/pohoda-8-67.pdf",
+  "pages": 1
  },
  {
   "title": "Sailing_7-55",
-  "file": "pdf/sailing-7-55.pdf"
+  "file": "pdf/sailing-7-55.pdf",
+  "pages": 1
  },
  {
   "title": "Sen_4-31",
-  "file": "pdf/sen-4-31.pdf"
+  "file": "pdf/sen-4-31.pdf",
+  "pages": 2
  },
  {
   "title": "Severní vítr_5-44",
-  "file": "pdf/severni-vitr-5-44.pdf"
+  "file": "pdf/severni-vitr-5-44.pdf",
+  "pages": 2
  },
  {
   "title": "Slavíci z Madridu_5-40",
-  "file": "pdf/slavici-z-madridu-5-40.pdf"
+  "file": "pdf/slavici-z-madridu-5-40.pdf",
+  "pages": 1
  },
  {
   "title": "Starosti - Repete 1_ 1-3",
-  "file": "pdf/starosti-repete-1-1-3.pdf"
+  "file": "pdf/starosti-repete-1-1-3.pdf",
+  "pages": 3
  },
  {
   "title": "Stejskání_2-8",
-  "file": "pdf/stejskani-2-8.pdf"
+  "file": "pdf/stejskani-2-8.pdf",
+  "pages": 1
  },
  {
   "title": "Sting Fields of gold_6-50",
-  "file": "pdf/sting-fields-of-gold-6-50.pdf"
+  "file": "pdf/sting-fields-of-gold-6-50.pdf",
+  "pages": 1
  },
  {
   "title": "Stánky_9-78",
-  "file": "pdf/stanky-9-78.pdf"
+  "file": "pdf/stanky-9-78.pdf",
+  "pages": 1
  },
  {
   "title": "Svaz českých bohémů-3MBAND",
-  "file": "pdf/svaz-ceskych-bohemu-3mband.pdf"
+  "file": "pdf/svaz-ceskych-bohemu-3mband.pdf",
+  "pages": 2
  },
  {
   "title": "Tisíc mil_9-71",
-  "file": "pdf/tisic-mil-9-71.pdf"
+  "file": "pdf/tisic-mil-9-71.pdf",
+  "pages": 1
  },
  {
   "title": "Včielka_9-76",
-  "file": "pdf/vcielka-9-76.pdf"
+  "file": "pdf/vcielka-9-76.pdf",
+  "pages": 1
  },
  {
   "title": "Yellow river_8-63",
-  "file": "pdf/yellow-river-8-63.pdf"
+  "file": "pdf/yellow-river-8-63.pdf",
+  "pages": 1
  },
  {
   "title": "Yesterday_6-51",
-  "file": "pdf/yesterday-6-51.pdf"
+  "file": "pdf/yesterday-6-51.pdf",
+  "pages": 2
  },
  {
   "title": "Zatancuj si so mnou_10-79",
-  "file": "pdf/zatancuj-si-so-mnou-10-79.pdf"
+  "file": "pdf/zatancuj-si-so-mnou-10-79.pdf",
+  "pages": 1
  },
  {
   "title": "Zažni_7-56",
-  "file": "pdf/zazni-7-56.pdf"
+  "file": "pdf/zazni-7-56.pdf",
+  "pages": 1
  },
  {
   "title": "Zrcadlo_2-15",
-  "file": "pdf/zrcadlo-2-15.pdf"
+  "file": "pdf/zrcadlo-2-15.pdf",
+  "pages": 1
  },
  {
   "title": "ZRPŠ_3-21",
-  "file": "pdf/zrps-3-21.pdf"
+  "file": "pdf/zrps-3-21.pdf",
+  "pages": 2
  },
  {
   "title": "Záhadná_10-82",
-  "file": "pdf/zahadna-10-82.pdf"
+  "file": "pdf/zahadna-10-82.pdf",
+  "pages": 2
  },
  {
   "title": "Ó maňo_5-45",
-  "file": "pdf/o-mano-5-45.pdf"
+  "file": "pdf/o-mano-5-45.pdf",
+  "pages": 1
  },
  {
   "title": "Úsmev_3-19",
-  "file": "pdf/usmev-3-19.pdf"
+  "file": "pdf/usmev-3-19.pdf",
+  "pages": 1
  },
  {
   "title": "Ľudia nie sú zlý_7-57",
-  "file": "pdf/ludia-nie-su-zly-7-57.pdf"
+  "file": "pdf/ludia-nie-su-zly-7-57.pdf",
+  "pages": 1
  },
  {
   "title": "Šrouby a matice_4-27",
-  "file": "pdf/srouby-a-matice-4-27.pdf"
+  "file": "pdf/srouby-a-matice-4-27.pdf",
+  "pages": 1
  },
  {
   "title": "Želva_1-4",
-  "file": "pdf/zelva-1-4.pdf"
+  "file": "pdf/zelva-1-4.pdf",
+  "pages": 1
  }
 ]

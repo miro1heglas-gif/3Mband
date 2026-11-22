@@ -30,7 +30,9 @@ ul{list-style:none;margin:0;padding:0;background:color-mix(in srgb,var(--card) 8
 li a{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:24px 20px;color:inherit;text-decoration:none;border-bottom:1px solid var(--sep);font-size:34px}
 li:last-child a{border-bottom:0}
 li a:active{background:var(--sep)}
-.ref{color:var(--ref);font-weight:800;font-size:34px;white-space:nowrap}
+.r{display:flex;align-items:baseline;gap:18px;white-space:nowrap}
+.pgs{color:var(--mut);font-size:22px}
+.ref{color:var(--ref);font-weight:800;font-size:34px;white-space:nowrap;min-width:110px;text-align:right}
 </style>
 </head>
 <body>
@@ -53,7 +55,7 @@ fetch('songs.json').then(r=>r.json()).then(d=>{
     const c=norm(s.title)[0]||'#',L=/[A-Z]/.test(c)?c:'#';
     if(L!==cur){if(open)h+='</ul>';cur=L;letters.push(L);h+=`<div class="letter" id="L${L==='#'?'N':L}">${L}</div><ul>`;open=true}
     const p=split(s.title);
-    h+=`<li><a id="s${i}" data-f="${s.file}" href="citanie.html?f=${encodeURIComponent(s.file)}&t=${encodeURIComponent(s.title)}"><span>${esc(p.name)}</span><span class="ref">${p.ref}</span></a></li>`;
+    h+=`<li><a id="s${i}" data-f="${s.file}" href="citanie.html?f=${encodeURIComponent(s.file)}&t=${encodeURIComponent(s.title)}"><span>${esc(p.name)}</span><span class="r"><span class="pgs">${s.pages?s.pages+' str.':''}</span><span class="ref">${p.ref}</span></span></a></li>`;
   });
   list.innerHTML=h+'</ul>';
   az.innerHTML=letters.map(L=>`<button data-l="L${L==='#'?'N':L}">${L}</button>`).join('');
